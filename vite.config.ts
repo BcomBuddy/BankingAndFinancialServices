@@ -6,5 +6,14 @@ export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
     exclude: ['lucide-react'],
+    include: ['firebase/app', 'firebase/auth', 'firebase/analytics'],
+  },
+  build: {
+    rollupOptions: {
+      external: [],
+    },
+  },
+  define: {
+    global: 'globalThis',
   },
 });
