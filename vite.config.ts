@@ -9,11 +9,21 @@ export default defineConfig({
     include: ['firebase/app', 'firebase/auth', 'firebase/analytics'],
   },
   build: {
+    commonjsOptions: {
+      include: [/firebase/, /node_modules/],
+    },
     rollupOptions: {
       external: [],
     },
   },
   define: {
     global: 'globalThis',
+  },
+  resolve: {
+    alias: {
+      'firebase/app': 'firebase/app',
+      'firebase/auth': 'firebase/auth',
+      'firebase/analytics': 'firebase/analytics',
+    },
   },
 });
